@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplReaderMVC", "SimplReaderMVC\SimplReaderMVC.csproj", "{C4CD45E7-FC52-4257-86C4-EFD832FCD61C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplReaderBLL", "SimplReaderBLL\SimplReaderBLL.csproj", "{768C1B01-34D6-4F8B-85A1-6402A184CDF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{C4CD45E7-FC52-4257-86C4-EFD832FCD61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4CD45E7-FC52-4257-86C4-EFD832FCD61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4CD45E7-FC52-4257-86C4-EFD832FCD61C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{768C1B01-34D6-4F8B-85A1-6402A184CDF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768C1B01-34D6-4F8B-85A1-6402A184CDF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768C1B01-34D6-4F8B-85A1-6402A184CDF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768C1B01-34D6-4F8B-85A1-6402A184CDF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
