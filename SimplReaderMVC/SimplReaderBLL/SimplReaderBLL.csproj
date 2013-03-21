@@ -74,7 +74,9 @@
     <Compile Include="BLL\Providers\CacheProvider.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="Enumerators\AccountStatusEnum.cs" />
+    <Compile Include="Enumerators\ReturnStatusEnum.cs" />
     <Compile Include="Enumerators\UserKeyTypeEnum.cs" />
+    <Compile Include="Enumerators\UserMessagesTypesEnum.cs" />
     <Compile Include="Enumerators\UserTypeEnum.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\EnumHelpers.cs" />

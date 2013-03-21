@@ -8,6 +8,7 @@ namespace SimplReaderBLL {
 		public static bool DefaultEmailOutgoingUseSSL { get { return GetBoolSetting("DefaultEmailOutgoingUseSSL"); } }
 		public static string DefaultEmailUsername { get { return ConfigurationManager.AppSettings.Get("DefaultEmailUsername"); } }
 		public static string DefaultEmailPassword { get { return ConfigurationManager.AppSettings.Get("DefaultEmailPassword"); } }
+        public static int NotificationTimeout { get { return GetIntSetting("NotificationTimeout"); } }
 
 		static bool GetBoolSetting(string key)
 		{
@@ -18,7 +19,7 @@ namespace SimplReaderBLL {
 
 		static int GetIntSetting(string key)
 		{
-			int value = 0;
+			int value;
 			int.TryParse(ConfigurationManager.AppSettings.Get(key), out value);
 			return value;
 		}

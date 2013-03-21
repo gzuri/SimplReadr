@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountNotActivated" xml:space="preserve">
-    <value>Your account has not been activated</value>
+  <data name="SuccessfullyLoggedIn" xml:space="preserve">
+    <value>You have successfuly logged in</value>
   </data>
-  <data name="EmailPlaceholder" xml:space="preserve">
-    <value>Enter your email</value>
-  </data>
-  <data name="LogOnButton" xml:space="preserve">
-    <value>Sign in</value>
-  </data>
-  <data name="PasswordPlaceholder" xml:space="preserve">
-    <value>Enter your password</value>
-  </data>
-  <data name="RegisterButton" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="WrongEmailOrPassword" xml:space="preserve">
-    <value>You have entered wrong email or password</value>
+  <data name="UserAlreadyLogedIn" xml:space="preserve">
+    <value>You are already logged in</value>
   </data>
 </root>

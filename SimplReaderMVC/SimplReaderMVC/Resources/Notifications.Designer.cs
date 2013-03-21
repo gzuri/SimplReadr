@@ -22,14 +22,14 @@ namespace SimplReaderMVC.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Translations {
+    public class Notifications {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Translations() {
+        internal Notifications() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SimplReaderMVC.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SimplReaderMVC.Resources.Translations", typeof(Translations).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SimplReaderMVC.Resources.Notifications", typeof(Notifications).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,20 @@ namespace SimplReaderMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your account has not been activated.
+        ///   Looks up a localized string similar to You have successfuly logged in.
         /// </summary>
-        public static string AccountNotActivated {
+        public static string SuccessfullyLoggedIn {
             get {
-                return ResourceManager.GetString("AccountNotActivated", resourceCulture);
+                return ResourceManager.GetString("SuccessfullyLoggedIn", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your email.
+        ///   Looks up a localized string similar to You are already logged in.
         /// </summary>
-        public static string EmailPlaceholder {
+        public static string UserAlreadyLogedIn {
             get {
-                return ResourceManager.GetString("EmailPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign in.
-        /// </summary>
-        public static string LogOnButton {
-            get {
-                return ResourceManager.GetString("LogOnButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enter your password.
-        /// </summary>
-        public static string PasswordPlaceholder {
-            get {
-                return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Register.
-        /// </summary>
-        public static string RegisterButton {
-            get {
-                return ResourceManager.GetString("RegisterButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You have entered wrong email or password.
-        /// </summary>
-        public static string WrongEmailOrPassword {
-            get {
-                return ResourceManager.GetString("WrongEmailOrPassword", resourceCulture);
+                return ResourceManager.GetString("UserAlreadyLogedIn", resourceCulture);
             }
         }
     }

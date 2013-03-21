@@ -1,4 +1,5 @@
-﻿@model SimplReaderMVC.Models.Account.LogOnVM
+﻿@using SimplReaderMVC.Resources
+@model SimplReaderMVC.Models.Account.LogOnVM
 
 @{
 	ViewBag.Title = "title";
@@ -12,11 +13,13 @@
 }
 
 @using (Ajax.BeginForm("LogOn", "Account", new {}, ajaxOptions, new { @class = "form-signin" })) {
-	<h2 class="form-signin-heading">Please sign in</h2>
-	<input type="text" class="input-block-level" placeholder="Email address">
-	<input type="password" class="input-block-level" placeholder="Password">
-	<label class="checkbox">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    @Html.TextBoxFor(x=>x.Email, new {@class="input-block-level",placeholder=Translations.EmailPlaceholder })
+    @Html.ValidationMessageFor(x=>x.Email)
+	<input type="password" name="@Model.Password" class="input-block-level" placeholder="@Translations.PasswordPlaceholder">
+	@*<label class="checkbox">
 		<input type="checkbox" value="remember-me"> Remember me
-	</label>
-	<button class="btn btn-large btn-primary" type="submit">Sign in</button>
+	</label>*@
+    <button class="btn btn-success" type="submit">@Translations.LogOnButton</button>
+    <a class="btn btn-primary" type="submit">@Translations.RegisterButton</a>
 }
