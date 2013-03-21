@@ -77,12 +77,20 @@
     <Compile Include="Enumerators\AccountStatusEnum.cs" />
     <Compile Include="Enumerators\UserKeyTypeEnum.cs" />
     <Compile Include="Enumerators\UserTypeEnum.cs" />
-    <Compile Include="Helpers\CommonInfo.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\EnumHelpers.cs" />
     <Compile Include="Helpers\IPHelper.cs" />
     <Compile Include="Helpers\SeoHelper.cs" />
     <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Migrations\201303211938248_Initial.cs" />
+    <Compile Include="Migrations\201303211938248_Initial.Designer.cs">
+      <DependentUpon>201303211938248_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303211950598_Added feed tables.cs" />
+    <Compile Include="Migrations\201303211950598_Added feed tables.Designer.cs">
+      <DependentUpon>201303211950598_Added feed tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
@@ -92,6 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201303211938248_Initial.resx">
+      <DependentUpon>201303211938248_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303211950598_Added feed tables.resx">
+      <DependentUpon>201303211950598_Added feed tables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

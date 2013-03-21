@@ -8,5 +8,7 @@ namespace SimplReaderBLL.BLL.Concrete {
 	public class RssFeed {
 		public long RssFeedID { get; set; }
 		public string FullURL { get; set; }
+
+		public virtual IEnumerable<FeedItem> FeedItems { get; set; }
 	}
 }
