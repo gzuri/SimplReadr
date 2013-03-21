@@ -8,7 +8,6 @@ namespace SimplReaderBLL.BLL.Concrete {
 			Configuration.ValidateOnSaveEnabled = false;
 		}
 
-		public IDbSet<DBSetting> Settings { get; set; }
 		public IDbSet<User> Users { get; set; }
 		public IDbSet<UserKey> UserKeys { get; set; }
 		public IDbSet<RssFeed> RssFeeds { get; set; }
@@ -17,7 +16,6 @@ namespace SimplReaderBLL.BLL.Concrete {
 		protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder) {
 			System.Data.Entity.Database.SetInitializer<DbContext>(null);
 			modelBuilder.Entity<User>().HasKey(x => x.UserID);
-			modelBuilder.Entity<DBSetting>().HasKey(x => x.ID);
 			modelBuilder.Entity<UserKey>().HasKey(x => x.ID).HasRequired(x => x.User);
 			modelBuilder.Entity<RssFeed>().HasKey(x => x.RssFeedID);
 			modelBuilder.Entity<FeedItem>().HasKey(x => x.FeedItemID).HasRequired(x => x.RssFeed);

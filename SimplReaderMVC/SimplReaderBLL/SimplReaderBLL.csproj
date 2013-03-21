@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Concrete\DbContext.cs" />
-    <Compile Include="BLL\Concrete\DBSetting.cs" />
     <Compile Include="BLL\Concrete\FeedItem.cs" />
     <Compile Include="BLL\Concrete\RssFeed.cs" />
     <Compile Include="BLL\Concrete\User.cs" />

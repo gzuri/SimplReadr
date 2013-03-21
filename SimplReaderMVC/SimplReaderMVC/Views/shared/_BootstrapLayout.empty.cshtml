@@ -52,12 +52,13 @@
         @RenderBody()
         <hr>
         <footer>
-            <p>&copy; Company @System.DateTime.Now.ToString("yyyy")</p>
+            
         </footer>
 
     </div> <!-- container -->
     @Scripts.Render("~/js")
     @RenderSection("Scripts", required: false)
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 </body>
 </html>
 

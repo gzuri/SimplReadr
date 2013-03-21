@@ -1,8 +1,22 @@
-﻿@model dynamic
+﻿@model SimplReaderMVC.Models.Account.LogOnVM
 
 @{
 	ViewBag.Title = "title";
-   Layout = "~/Views/shared/_BootstrapLayout.basic.cshtml";
+	Layout = null;
+
+   AjaxOptions ajaxOptions = new AjaxOptions {
+       HttpMethod = "post",
+       UpdateTargetId = "validationSummaryLogOn",
+       OnSuccess = "ajaxFormSuccess"
+   };
 }
 
-<h2>title</h2>
+@using (Ajax.BeginForm("LogOn", "Account", new {}, ajaxOptions, new { @class = "form-signin" })) {
+	<h2 class="form-signin-heading">Please sign in</h2>
+	<input type="text" class="input-block-level" placeholder="Email address">
+	<input type="password" class="input-block-level" placeholder="Password">
+	<label class="checkbox">
+		<input type="checkbox" value="remember-me"> Remember me
+	</label>
+	<button class="btn btn-large btn-primary" type="submit">Sign in</button>
+}
