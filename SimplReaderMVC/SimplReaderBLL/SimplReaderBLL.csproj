@@ -68,16 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Concrete\DbContext.cs" />
-    <Compile Include="BLL\Concrete\FeedItem.cs" />
-    <Compile Include="BLL\Concrete\RssFeed.cs" />
+    <Compile Include="BLL\Reader\FeedItem.cs" />
+    <Compile Include="BLL\Reader\RssFeed.cs" />
     <Compile Include="BLL\Concrete\User.cs" />
     <Compile Include="BLL\Concrete\UserKey.cs" />
     <Compile Include="BLL\Concrete\UserSubscription.cs" />
     <Compile Include="BLL\Membership\AccountProvider.cs" />
     <Compile Include="BLL\Membership\AuthenticationProvider.cs" />
     <Compile Include="BLL\Providers\CacheProvider.cs" />
-    <Compile Include="BLL\Reader\FeedProvider.cs" />
-    <Compile Include="BLL\Reader\SubscriptionProvider.cs" />
+    <Compile Include="BLL\Reader\Providers\FeedProvider.cs" />
+    <Compile Include="BLL\Reader\Providers\SubscriptionProvider.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="Enumerators\AccountStatusEnum.cs" />
     <Compile Include="Enumerators\ReturnStatusEnum.cs" />
@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201303241506363_fixed key type of rssFeed.Designer.cs">
       <DependentUpon>201303241506363_fixed key type of rssFeed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303241631099_added title to subscription.cs" />
+    <Compile Include="Migrations\201303241631099_added title to subscription.Designer.cs">
+      <DependentUpon>201303241631099_added title to subscription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -114,6 +118,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BLL\Types\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303241506363_fixed key type of rssFeed.resx">
       <DependentUpon>201303241506363_fixed key type of rssFeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303241631099_added title to subscription.resx">
+      <DependentUpon>201303241631099_added title to subscription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

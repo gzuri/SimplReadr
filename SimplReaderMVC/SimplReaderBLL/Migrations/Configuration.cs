@@ -1,4 +1,5 @@
 using SimplReaderBLL.BLL.Concrete;
+using SimplReaderBLL.BLL.Reader;
 using SimplReaderBLL.Enumerators;
 
 namespace SimplReaderBLL.Migrations

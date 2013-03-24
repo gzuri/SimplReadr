@@ -6,5 +6,5 @@
 
 @foreach(var subscription in Model)
 {
-    <li>@Html.ActionLink(subscription.SubscriptionFullURL, "Index", "Reader", new { feedID = subscription.ID }, new {})</li>
+    <li>@Html.ActionLink(subscription.Title, "Index", "Reader", new { feedID = subscription.ID }, new {})</li>
 }

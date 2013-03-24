@@ -1,7 +1,16 @@
-﻿@{
+﻿@model List<SimplReaderMVC.Models.Reader.FeedItemVM>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/shared/_BootstrapLayout.basic.cshtml";
 }
 
-<h2>Index</h2>
-@SimplReaderBLL.CurrentUser.UserID
+@foreach(var item in Model)
+{
+    <article>
+        <h3>@item.Title</h3>
+        <p> @Html.Raw(item.Content)</p>
+        <div>
+            <span class="badge badge-success">Posted: @item.DatePublished.ToShortDateString()</span><div class="pull-right"><span class="label">alice</span> <span class="label">story</span> <span class="label">blog</span> <span class="label">personal</span></div>
+        </div> 
+    </article>
+}

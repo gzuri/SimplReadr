@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SimplReaderBLL.BLL.Concrete {
-	public class FeedItem {
-		public long FeedItemID { get; set; }
+namespace SimplReaderBLL.BLL.Reader {
+	public class FeedItem
+    {
+        #region EF
+        public long FeedItemID { get; set; }
 		public string FullURL { get; set; }
 		public string Title { get; set; }
 		public string ShortDescription { get; set; }
@@ -16,5 +14,8 @@ namespace SimplReaderBLL.BLL.Concrete {
 
 		public virtual RssFeed RssFeed { get; set; }
 		public long RssFeedID { get; set; }
-	}
+        #endregion
+
+	    
+    }
 }

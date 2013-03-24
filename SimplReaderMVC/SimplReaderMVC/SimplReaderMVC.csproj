@@ -161,6 +161,7 @@
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReaderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,6 +169,7 @@
     </Compile>
     <Compile Include="Models\Account\AccountService.cs" />
     <Compile Include="Models\Account\LogOnVM.cs" />
+    <Compile Include="Models\Reader\FeedItemVM.cs" />
     <Compile Include="Models\Reader\ReaderService.cs" />
     <Compile Include="Models\Reader\SubscriptionsVM.cs" />
     <Compile Include="Models\UserMessage\UserMessage.cs" />

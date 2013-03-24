@@ -17,9 +17,10 @@ namespace SimplReaderMVC.Controllers
         }
 
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(long? feedID)
         {
-            return View();
+            var model = readerService.GetFeedItems(SimplReaderBLL.CurrentUser.UserID, feedID);
+            return View(model);
         }
 
         

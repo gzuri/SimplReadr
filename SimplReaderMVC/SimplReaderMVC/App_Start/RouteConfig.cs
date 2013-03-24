@@ -12,8 +12,8 @@ namespace SimplReaderMVC {
 
             routes.MapRoute(
                  name: "DefaultReader",
-                 url: "Reader",
-                 defaults: new { controller = "Reader", action = "Index" }
+                 url: "Reader/{feedid}",
+                 defaults: new { controller = "Reader", action = "Index", feedID = UrlParameter.Optional }
             );
 
 			routes.MapRoute(

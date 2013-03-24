@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using SimplReaderBLL.BLL.Reader;
 
 namespace SimplReaderBLL.BLL.Concrete {
 	public class DbContext : System.Data.Entity.DbContext {

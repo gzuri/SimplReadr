@@ -21,7 +21,14 @@ namespace SimplReaderBLL.BLL.Reader
 
         public IEnumerable<RssFeed> GetUserSubscriptions(int userID)
         {
-            return context.RssFeeds.Where(x => x.UserSubscriptions.Any(sub => sub.UserID == userID));
+            var data = (from feeds in context.RssFeeds
+                       join subscriptions in context.UserSubscriptions on feeds.RssFeedID equals subscriptions.RssFeedID
+                       where subscriptions.UserID == userID
+                       orderby subscriptions.Title
+                       select new {feeds, subscriptions}).ToList().Select(x=> new RssFeed{Title = x.subscriptions.Title, FullURL = x.feeds.FullURL, RssFeedID = x.subscriptions.RssFeedID, LastSync = x.feeds.LastSync});
+            return data;
         }
+
+        
     }
 }
