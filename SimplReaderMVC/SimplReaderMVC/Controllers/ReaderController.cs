@@ -29,5 +29,17 @@ namespace SimplReaderMVC.Controllers
             var model = readerService.GetUserSubscriptions(SimplReaderBLL.CurrentUser.UserID);
             return PartialView(model);
         }
+
+        [Authorize]
+        public ActionResult ManageSubscriptions()
+        {
+            return View();
+        }
+
+        public ActionResult ManageSubscriptionsTable()
+        {
+            var model = readerService.GetUserSubscriptions(SimplReaderBLL.CurrentUser.UserID);
+            return PartialView(model);
+        }
     }
 }

@@ -245,6 +245,8 @@
     <Content Include="Views\Reader\Index.cshtml" />
     <Content Include="Views\Reader\DisplaySubscriptions.cshtml" />
     <Content Include="Views\shared\Sidebar.cshtml" />
+    <Content Include="Views\Reader\ManageSubscriptions.cshtml" />
+    <Content Include="Views\Reader\ManageSubscriptionsTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

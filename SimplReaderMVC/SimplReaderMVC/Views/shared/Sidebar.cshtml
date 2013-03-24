@@ -2,17 +2,18 @@
     ViewBag.Title = "Sidebar";
     Layout = null;
 }
+    <a href="#" class="btn btn-success" id="addSubscription">Add subscription</a>
 
 <div class="well sidebar-nav">
-<ul class="nav nav-list">
-    <li class="nav-header">Sidebar</li>
-    <li>@Html.ActionLink("All items", "Index", "Reader", new { feedID = (long?)null}, new{})</li>
-    <li><a href="#">Favorites</a></li>
-    <li><a href="#">Link</a></li>
-    <li><a href="#">Link</a></li>
-    <li class="nav-header">Sidebar</li>
-    @{Html.RenderAction("DisplaySubscriptions", "Reader");}
-</ul>
+    <ul class="nav nav-list">
+        <li class="nav-header">Sidebar</li>
+        <li>@Html.ActionLink("All items", "Index", "Reader", new { feedID = (long?)null}, new{})</li>
+        <li><a href="#">Favorites</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="nav-header">Sidebar</li>
+        @{Html.RenderAction("DisplaySubscriptions", "Reader");}
+    </ul>
 </div>
 
 
