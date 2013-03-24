@@ -10,7 +10,8 @@ namespace SimplReaderBLL.BLL.Concrete {
 		public string FullURL { get; set; }
 		public string Title { get; set; }
 		public string ShortDescription { get; set; }
-		public DateTime OriginalFeedItemCreated { get; set; }
+	    public string Author { get; set; }
+		public DateTime DatePublished { get; set; }
 		public DateTime DateCollected { get; set; }
 
 		public virtual RssFeed RssFeed { get; set; }

@@ -16,7 +16,9 @@
     <h2 class="form-signin-heading">Please sign in</h2>
     @Html.TextBoxFor(x=>x.Email, new {@class="input-block-level",placeholder=Translations.EmailPlaceholder })
     @Html.ValidationMessageFor(x=>x.Email)
-	<input type="password" name="@Model.Password" class="input-block-level" placeholder="@Translations.PasswordPlaceholder">
+    @Html.PasswordFor(x=>x.Password, new {@class="input-block-level",placeholder=Translations.PasswordPlaceholder })
+    @Html.ValidationMessageFor(x=>x.Password)
+	
 	@*<label class="checkbox">
 		<input type="checkbox" value="remember-me"> Remember me
 	</label>*@

@@ -10,6 +10,12 @@ namespace SimplReaderMVC {
 		public static void RegisterRoutes(RouteCollection routes) {
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                 name: "DefaultReader",
+                 url: "Reader",
+                 defaults: new { controller = "Reader", action = "Index" }
+            );
+
 			routes.MapRoute(
 				 name: "Default",
 				 url: "{controller}/{action}/{id}",

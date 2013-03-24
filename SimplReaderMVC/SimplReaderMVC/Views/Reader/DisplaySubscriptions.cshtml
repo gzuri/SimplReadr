@@ -1,0 +1,10 @@
+﻿@model List<SimplReaderMVC.Models.Reader.SubscriptionsVM>
+
+@{
+    Layout = null;
+}
+
+@foreach(var subscription in Model)
+{
+    <li>@Html.ActionLink(subscription.SubscriptionFullURL, "Index", "Reader", new { feedID = subscription.ID }, new {})</li>
+}

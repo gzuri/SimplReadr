@@ -48,6 +48,9 @@
     <Reference Include="Ninject.Extensions.Logging.Log4Net">
       <HintPath>..\packages\Ninject.Extensions.Logging.Log4net.3.0.1.0\lib\net45-full\Ninject.Extensions.Logging.Log4Net.dll</HintPath>
     </Reference>
+    <Reference Include="QDFeedParser">
+      <HintPath>..\packages\qdfeed.1.0.2\lib\net35\QDFeedParser.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -69,9 +72,12 @@
     <Compile Include="BLL\Concrete\RssFeed.cs" />
     <Compile Include="BLL\Concrete\User.cs" />
     <Compile Include="BLL\Concrete\UserKey.cs" />
+    <Compile Include="BLL\Concrete\UserSubscription.cs" />
     <Compile Include="BLL\Membership\AccountProvider.cs" />
     <Compile Include="BLL\Membership\AuthenticationProvider.cs" />
     <Compile Include="BLL\Providers\CacheProvider.cs" />
+    <Compile Include="BLL\Reader\FeedProvider.cs" />
+    <Compile Include="BLL\Reader\SubscriptionProvider.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="Enumerators\AccountStatusEnum.cs" />
     <Compile Include="Enumerators\ReturnStatusEnum.cs" />
@@ -91,6 +97,14 @@
     <Compile Include="Migrations\201303211950598_Added feed tables.Designer.cs">
       <DependentUpon>201303211950598_Added feed tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303241451165_added userfeed relation.cs" />
+    <Compile Include="Migrations\201303241451165_added userfeed relation.Designer.cs">
+      <DependentUpon>201303241451165_added userfeed relation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303241506363_fixed key type of rssFeed.cs" />
+    <Compile Include="Migrations\201303241506363_fixed key type of rssFeed.Designer.cs">
+      <DependentUpon>201303241506363_fixed key type of rssFeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -108,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303211950598_Added feed tables.resx">
       <DependentUpon>201303211950598_Added feed tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303241451165_added userfeed relation.resx">
+      <DependentUpon>201303241451165_added userfeed relation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303241506363_fixed key type of rssFeed.resx">
+      <DependentUpon>201303241506363_fixed key type of rssFeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

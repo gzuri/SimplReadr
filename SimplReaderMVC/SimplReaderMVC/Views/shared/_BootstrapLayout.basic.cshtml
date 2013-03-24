@@ -31,9 +31,19 @@
             </div>
         </div>        
         <div class="container">
-            @Html.Partial("_alerts")
-            @Html.Partial("_validationSummary")
-            @RenderBody()   
+            <div class="row-fluid">
+                <div class="span3">
+                    @{ Html.RenderPartial("Sidebar"); }
+
+                </div>
+                <div class="span9">
+                    @Html.Partial("_alerts")
+                    @Html.Partial("_validationSummary")
+                    @RenderBody()   
+                </div>
+
+            </div>
+            
             <hr>
             <footer>
                 
@@ -41,6 +51,7 @@
         </div>
          @Scripts.Render("~/js")
          @RenderSection("Scripts", required: false)
+        <script type="text/javascript" src="~/Scripts/custom.js"></script>
     </body>
 </html>
 

@@ -31,7 +31,7 @@ namespace SimplReaderMVC.Controllers {
                 {
                     case AccountStatusEnum.Successfull:
                         AddNotification(Notifications.SuccessfullyLoggedIn, UserMessagesTypesEnum.Success);
-                        return Redirect(Url.RouteUrl("DefaultNanoCms"));
+                        return Redirect(Url.RouteUrl("DefaultReader"));
                         break;
                     case AccountStatusEnum.UsernameAndPasswordMissmatch:
                         ModelState.AddModelError("", Translations.WrongEmailOrPassword);

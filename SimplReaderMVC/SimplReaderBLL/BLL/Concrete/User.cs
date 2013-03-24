@@ -49,6 +49,7 @@ namespace SimplReaderBLL.BLL.Concrete {
 
 		public string Name { get; set; }
 
+	    public virtual ICollection<UserSubscription> UserSubscriptions { get; set; }
 
 		public virtual ICollection<UserKey> UserKeys { get; set; }
 		public int UserType { get; set; }

@@ -8,7 +8,9 @@ namespace SimplReaderBLL.BLL.Concrete {
 	public class RssFeed {
 		public long RssFeedID { get; set; }
 		public string FullURL { get; set; }
+	    public DateTime LastSync { get; set; }
 
-		public virtual IEnumerable<FeedItem> FeedItems { get; set; }
+		public virtual ICollection<FeedItem> FeedItems { get; set; }
+        public virtual ICollection<UserSubscription> UserSubscriptions { get; set; }
 	}
 }

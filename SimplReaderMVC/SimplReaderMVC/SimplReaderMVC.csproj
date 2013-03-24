@@ -168,6 +168,8 @@
     </Compile>
     <Compile Include="Models\Account\AccountService.cs" />
     <Compile Include="Models\Account\LogOnVM.cs" />
+    <Compile Include="Models\Reader\ReaderService.cs" />
+    <Compile Include="Models\Reader\SubscriptionsVM.cs" />
     <Compile Include="Models\UserMessage\UserMessage.cs" />
     <Compile Include="Models\UserMessage\UserMessageProvider.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
@@ -202,6 +204,7 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\custom.js" />
     <Content Include="scripts\html5shiv.js" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\jquery-1.9.1.js" />
@@ -237,6 +240,9 @@
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\shared\_MINIPROFILER UPDATED Layout.cshtml" />
+    <Content Include="Views\Reader\Index.cshtml" />
+    <Content Include="Views\Reader\DisplaySubscriptions.cshtml" />
+    <Content Include="Views\shared\Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
