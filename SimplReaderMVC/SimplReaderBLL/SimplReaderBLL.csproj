@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201303241631099_added title to subscription.Designer.cs">
       <DependentUpon>201303241631099_added title to subscription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303241718443_added default title for feed.cs" />
+    <Compile Include="Migrations\201303241718443_added default title for feed.Designer.cs">
+      <DependentUpon>201303241718443_added default title for feed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303241631099_added title to subscription.resx">
       <DependentUpon>201303241631099_added title to subscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303241718443_added default title for feed.resx">
+      <DependentUpon>201303241718443_added default title for feed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -25,7 +25,13 @@ namespace SimplReaderBLL.BLL.Reader
                        join subscriptions in context.UserSubscriptions on feeds.RssFeedID equals subscriptions.RssFeedID
                        where subscriptions.UserID == userID
                        orderby subscriptions.Title
-                       select new {feeds, subscriptions}).ToList().Select(x=> new RssFeed{Title = x.subscriptions.Title, FullURL = x.feeds.FullURL, RssFeedID = x.subscriptions.RssFeedID, LastSync = x.feeds.LastSync});
+                       select new {feeds, subscriptions}).ToList().Select(x=> new RssFeed
+                           {
+                               Title =  !string.IsNullOrEmpty(x.subscriptions.Title) ? x.subscriptions.Title : x.feeds.Title, 
+                               FullURL = x.feeds.FullURL, 
+                               RssFeedID = x.subscriptions.RssFeedID, 
+                               LastSync = x.feeds.LastSync
+                           });
             return data;
         }
 

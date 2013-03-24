@@ -16,10 +16,11 @@ namespace SimplReaderMVC.Controllers {
             this.accountService = accountService;
         }
 
-		public ActionResult LogOn()
+	    public ActionResult LogOn()
 		{
-		    
-			return PartialView(new LogOnVM());
+            if (SimplReaderBLL.CurrentUser.IsAuthenticated)
+                return RedirectToRoute("DefaultReader");
+			return View(new LogOnVM());
 		}
 
 		[HttpPost]
@@ -58,6 +59,13 @@ namespace SimplReaderMVC.Controllers {
 			    JsonRequestBehavior = JsonRequestBehavior.AllowGet
 			};
 		}
+
+        public ActionResult LogOut()
+        {
+            accountService.LogOut();
+            //AddNotification(Resources.Notification.SuccessfullyLoggedOut, UserMessagesTypesEnum.Information);
+            return RedirectToRoute("LogOn");
+        }
 
 	}
 }

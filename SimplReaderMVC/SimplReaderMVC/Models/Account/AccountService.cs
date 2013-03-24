@@ -39,5 +39,13 @@ namespace SimplReaderMVC.Models.Account
             }
             return authenticationProvider.SystemLogIn(user.UserID) ? AccountStatusEnum.Successfull : AccountStatusEnum.UserAlreadyLoggedIn;
         }
+
+        /// <summary>
+        /// Logs user out of the system
+        /// </summary>
+        public void LogOut()
+        {
+            authenticationProvider.SystemLogOut();
+        }
     }
 }

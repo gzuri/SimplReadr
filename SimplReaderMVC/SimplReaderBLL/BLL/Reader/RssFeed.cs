@@ -15,7 +15,6 @@ namespace SimplReaderBLL.BLL.Reader {
         public virtual ICollection<UserSubscription> UserSubscriptions { get; set; }
         #endregion
 
-        [NotMapped]
         public string Title { get; set; }
     }
 }

@@ -55,6 +55,7 @@ namespace SimplReaderBLL.BLL.Reader
                 }
             }
             feedData.LastSync = DateTime.UtcNow;
+            feedData.Title = feed.Title;
             context.SaveChanges();
         }
 
