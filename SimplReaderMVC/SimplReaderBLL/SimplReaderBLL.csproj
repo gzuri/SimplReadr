@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -70,8 +73,8 @@
     <Compile Include="BLL\Concrete\DbContext.cs" />
     <Compile Include="BLL\Reader\FeedItem.cs" />
     <Compile Include="BLL\Reader\RssFeed.cs" />
-    <Compile Include="BLL\Concrete\User.cs" />
-    <Compile Include="BLL\Concrete\UserKey.cs" />
+    <Compile Include="BLL\Membership\User.cs" />
+    <Compile Include="BLL\Membership\UserKey.cs" />
     <Compile Include="BLL\Concrete\UserSubscription.cs" />
     <Compile Include="BLL\Membership\AccountProvider.cs" />
     <Compile Include="BLL\Membership\AuthenticationProvider.cs" />

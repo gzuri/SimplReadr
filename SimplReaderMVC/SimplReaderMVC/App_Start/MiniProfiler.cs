@@ -81,23 +81,20 @@ namespace SimplReaderMVC.App_Start
         {
             context.BeginRequest += (sender, e) =>
             {
-                var request = ((HttpApplication)sender).Request;
-                //TODO: By default only local requests are profiled, optionally you can set it up
-                //  so authenticated users are always profiled
-                if (request.IsLocal) { MiniProfiler.Start(); }
+                MiniProfiler.Start();
             };
 
 
-            // TODO: You can control who sees the profiling information
-            /*
-            context.AuthenticateRequest += (sender, e) =>
-            {
-                if (!CurrentUserIsAllowedToSeeProfiler())
-                {
-                    StackExchange.Profiling.MiniProfiler.Stop(discardResults: true);
-                }
-            };
-            */
+             //TODO: You can control who sees the profiling information
+            
+            //context.AuthenticateRequest += (sender, e) =>
+            //{
+            //    if (!SimplReaderBLL.CurrentUser.IsAdmin)
+            //    {
+            //        StackExchange.Profiling.MiniProfiler.Stop(discardResults: true);
+            //    }
+            //};
+            
 
             context.EndRequest += (sender, e) =>
             {

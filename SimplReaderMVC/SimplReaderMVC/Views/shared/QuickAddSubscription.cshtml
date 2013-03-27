@@ -1,0 +1,40 @@
+﻿@model SimplReaderMVC.Models.Reader.SubscriptionVM
+
+@{
+            AjaxOptions addSubscriptionAjaxOptions = new AjaxOptions
+            {
+                HttpMethod = "post",
+                UpdateTargetId = "validationSummaryLogOn",
+                OnSuccess = "ajaxFormSuccess"
+            };
+        }
+<div class="modal hide fade" id="addSubscriptionModal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Add subscription</h3>
+    </div>
+    <div class="modal-body">
+        @using (Ajax.BeginForm("AddSubscription", "Reader", new { }, addSubscriptionAjaxOptions, new { @class = "form-horizontal" }))
+        {
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Feed URL:</label>
+                <div class="controls">
+                    <div class="input-append">
+                        @Html.TextBoxFor(x=>x.SubscriptionFullURL, new { @class="input-xlarge"})
+                        <button class="btn btn-success" type="submit">Go!</button>
+                    </div>
+                </div>
+            </div>
+            
+        }
+    </div>
+    @*    <div class="modal-footer">
+                <a href="#" class="btn">Close</a>
+                <a href="#" class="btn btn-primary">Save changes</a>
+            </div>*@
+</div>
+
+@section Scripts
+{
+       
+}

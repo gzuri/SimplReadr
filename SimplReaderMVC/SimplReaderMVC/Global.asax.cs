@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using StackExchange.Profiling;
 
 namespace SimplReaderMVC {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -17,7 +18,16 @@ namespace SimplReaderMVC {
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootstrapSupport.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
-            BootstrapMvcSample.ExampleLayoutsRouteConfig.RegisterRoutes(RouteTable.Routes);
 		}
+
+        protected void Application_BeginRequest()
+        {
+            MiniProfiler.Start();
+        }
+
+	    protected void Application_EndRequest()
+        {
+            MiniProfiler.Stop();
+        }
 	}
 }

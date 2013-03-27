@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SimplReaderBLL.BLL.Concrete;
 
-namespace SimplReaderBLL.BLL.Concrete {
+namespace SimplReaderBLL.BLL.Membership {
 	public class User {
 
 		public int UserID { get; set; }

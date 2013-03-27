@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HtmlAgilityPack;
 using Ninject.Extensions.Logging;
 using QDFeedParser;
 using SimplReaderBLL.BLL.Concrete;
@@ -25,37 +26,79 @@ namespace SimplReaderBLL.BLL.Reader
         public void SycAllFeeds()
         {
             var feeds = context.RssFeeds.Select(x => x.RssFeedID).ToList();
-            feeds.ForEach(SyncFeedItems);
+            feeds.ForEach(x => SyncFeedItems(x));
         }
 
-        public void SyncFeedItems(long feedID)
+        public static RssFeed GetFeedFromURL(string url)
         {
-            var feedData = context.RssFeeds.Find(feedID);
-            if (feedData == null)
+            try
+            {
+                var systemFeed = new RssFeed();
+                var feeduri = new Uri(url);
+                var factory = new HttpFeedFactory();
+                var feed = factory.CreateFeed(feeduri);
+                systemFeed.FeedItems = feed.Items.Select(item => new FeedItem
+                                                                                             {
+                                                                                                 Author = item.Author,
+                                                                                                 DatePublished = item.DatePublished,
+                                                                                                 FullURL = item.Link,
+                                                                                                 ShortDescription = PrepareForLazyLoadImages(item.Content),
+                                                                                                 Title = item.Title,
+                                                                                                 DateCollected = DateTime.UtcNow
+                                                                                             }).ToList();
+                systemFeed.Title = feed.Title;
+                systemFeed.LastSync = feed.LastUpdated;
+                return systemFeed;
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
+        }
+
+
+        public static string PrepareForLazyLoadImages(string rawHTML)
+        {
+            if (String.IsNullOrEmpty(rawHTML))
+                return String.Empty;
+
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(rawHTML ?? "");
+            HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//img");
+            if (nodes != null)
+            {
+                foreach (HtmlNode node in nodes)
+                {
+                    // get attributes
+                    string src = node.GetAttributeValue("src", null);
+                    if (string.IsNullOrEmpty(src))
+                        continue;
+                    node.SetAttributeValue("data-original", src);
+                    node.SetAttributeValue("src", "/Content/images/empty.png");
+                }
+            }
+            return doc.DocumentNode.OuterHtml;
+        }
+
+
+        public void SyncFeedItems(long feedID, RssFeed feedData = null)
+        {
+            var feedDbData = context.RssFeeds.Find(feedID);
+            if (feedDbData == null)
                 return;
 
             var allLocalItems = context.FeedItems.Where(x => x.RssFeedID == feedID).ToList();
-            var feeduri = new Uri(feedData.FullURL);
-            var factory = new HttpFeedFactory();
-            var feed = factory.CreateFeed(feeduri);
-            foreach (var item in feed.Items)
+            if (feedData == null)
+                feedData = GetFeedFromURL(feedDbData.FullURL);
+
+            foreach (var item in feedData.FeedItems.Where(x => allLocalItems.All(y => y.FullURL != x.FullURL)))
             {
-                if (allLocalItems.All(x=>x.FullURL != item.Link))
-                {
-                    context.FeedItems.Add(new FeedItem
-                                              {
-                                                  Author = item.Author,
-                                                  DatePublished = item.DatePublished,
-                                                  FullURL = item.Link,
-                                                  ShortDescription = item.Content,
-                                                  Title = item.Title,
-                                                  RssFeedID = feedID,
-                                                  DateCollected = DateTime.UtcNow
-                                              });
-                }
+                item.RssFeedID = feedID;
+                context.FeedItems.Add(item);
             }
-            feedData.LastSync = DateTime.UtcNow;
-            feedData.Title = feed.Title;
+            feedDbData.LastSync = DateTime.UtcNow;
+            feedDbData.Title = feedData.Title;
             context.SaveChanges();
         }
 
@@ -76,7 +119,7 @@ namespace SimplReaderBLL.BLL.Reader
 
             if (feedID.HasValue)
                 data = data.Where(x => x.RssFeedID == feedID.Value);
-            
+
             return data;
         }
     }

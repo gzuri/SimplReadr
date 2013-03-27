@@ -11,5 +11,7 @@ namespace SimplReaderBLL.Enumerators
         Undefined = 0,
         Success = 1,
         GenericError = 2,
+        UrlInWrongFormat = 3,
+        NothingOnUrl = 4
     }
 }

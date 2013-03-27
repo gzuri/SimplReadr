@@ -13,9 +13,10 @@ namespace BootstrapSupport
                 "~/Scripts/jquery-migrate-{version}.js",
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/jquery.validate.js",
-                "~/scripts/jquery.validate.unobtrusive.js",
+                "~/Scripts/jquery.validate.unobtrusive.js",
                 "~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js",
-					 "~/Scripts/jquery.unobtrusive-ajax.min.js"
+				"~/Scripts/jquery.unobtrusive-ajax.min.js",
+                "~/Scripts/jquery.lazyload.min.js"
                 ));
 
             bundles.Add(new StyleBundle("~/content/css").Include(

@@ -1,9 +1,12 @@
 @using System.Web.Optimization
 @using BootstrapSupport
 @using NavigationRoutes
+@using SimplReaderMVC.Models.Reader
+@using StackExchange.Profiling;
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        @this.InitClientTimings()
         <meta charset="utf-8">
         <title>@ViewBag.Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,9 +62,26 @@
                 
             </footer> 
         </div>
-         @Scripts.Render("~/js")
+        @{Html.RenderPartial("QuickAddSubscription", new SubscriptionVM());}
+        @Scripts.Render("~/js")
          @RenderSection("Scripts", required: false)
+        <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
         <script type="text/javascript" src="~/Scripts/custom.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.lazyload.min.js"></script>
+       <script type="text/javascript">
+           jQuery(document).ready(function () {
+               $("img").lazyload({
+                   effect: "fadeIn"
+               });
+               jQuery("#addSubscription").click(function (ev) {
+                   ev.preventDefault();
+                   console.log("init modal");
+                   jQuery("#addSubscriptionModal").modal('show');
+               });
+           });
+
+       </script>  
+        @MiniProfiler.RenderIncludes()
     </body>
 </html>
 

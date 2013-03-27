@@ -1,4 +1,4 @@
-﻿namespace SimplReaderBLL.BLL.Concrete {
+﻿namespace SimplReaderBLL.BLL.Membership {
 	public class UserKey {
 		public int ID { get; set; }
 		public bool IsDeleted { get; set; }

@@ -61,11 +61,29 @@ namespace SimplReaderMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry... system couldn&apos;t find any feed on URL.
+        /// </summary>
+        public static string FeedNotFoundOnUrl {
+            get {
+                return ResourceManager.GetString("FeedNotFoundOnUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have successfuly logged in.
         /// </summary>
         public static string SuccessfullyLoggedIn {
             get {
                 return ResourceManager.GetString("SuccessfullyLoggedIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entered URL is in wrong format.
+        /// </summary>
+        public static string UrlInWrongFormatErrorMessage {
+            get {
+                return ResourceManager.GetString("UrlInWrongFormatErrorMessage", resourceCulture);
             }
         }
         

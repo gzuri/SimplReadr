@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SimplReaderBLL.Enumerators;
 using SimplReaderMVC.Models.Reader;
+using SimplReaderMVC.Resources;
 
 namespace SimplReaderMVC.Controllers
 {
@@ -23,7 +25,7 @@ namespace SimplReaderMVC.Controllers
             return View(model);
         }
 
-        
+
         public ActionResult DisplaySubscriptions()
         {
             var model = readerService.GetUserSubscriptions(SimplReaderBLL.CurrentUser.UserID);
@@ -40,6 +42,38 @@ namespace SimplReaderMVC.Controllers
         {
             var model = readerService.GetUserSubscriptions(SimplReaderBLL.CurrentUser.UserID);
             return PartialView(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult AddSubscription(SubscriptionVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var status = readerService.AddSubscription(model.SubscriptionFullURL);
+               
+                switch (status)
+                {
+                    case ReturnStatusEnum.Success:
+                        AddNotification(Notifications.SuccessfullyLoggedIn, UserMessagesTypesEnum.Success);
+                        return Redirect(Url.RouteUrl("DefaultReader"));
+                        break;
+                    case ReturnStatusEnum.UrlInWrongFormat:
+                        ModelState.AddModelError("", Notifications.UrlInWrongFormatErrorMessage);
+                        break;
+                    case ReturnStatusEnum.NothingOnUrl:
+                        ModelState.AddModelError("", Notifications.FeedNotFoundOnUrl);
+                        break;
+                  
+                    default:
+                        break;
+                }
+            }
+            return new JsonResult
+            {
+                Data = new { status = ReturnStatusEnum.GenericError },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
     }
 }

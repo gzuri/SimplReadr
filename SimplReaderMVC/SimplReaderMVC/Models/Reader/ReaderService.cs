@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SimplReaderBLL.BLL.Reader;
+using SimplReaderBLL;
+using SimplReaderBLL.Enumerators;
+
 
 namespace SimplReaderMVC.Models.Reader
 {
@@ -17,9 +20,9 @@ namespace SimplReaderMVC.Models.Reader
             this.feedProvider = feedProvider;
         }
 
-        public List<SubscriptionsVM> GetUserSubscriptions(int userID)
+        public List<SubscriptionVM> GetUserSubscriptions(int userID)
         {
-            return subscriptionProvider.GetUserSubscriptions(userID).Select( x => new SubscriptionsVM {SubscriptionFullURL = x.FullURL, ID = x.RssFeedID, Title = x.Title}).ToList();
+            return subscriptionProvider.GetUserSubscriptions(userID).Select( x => new SubscriptionVM {SubscriptionFullURL = x.FullURL, ID = x.RssFeedID, Title = x.Title}).ToList();
         }
 
         public List<FeedItemVM> GetFeedItems(int userID, long? feedID = null)
@@ -32,6 +35,20 @@ namespace SimplReaderMVC.Models.Reader
                                             Content = x.ShortDescription,
                                             DatePublished = x.DatePublished
                                         }).ToList();
+        }
+
+        public ReturnStatusEnum AddSubscription(string url)
+        {
+            try
+            {
+                var uri = new Uri(url);
+                RssFeed rssFeed;
+                return subscriptionProvider.AddSubscription(CurrentUser.UserID, uri, out rssFeed);
+            }catch(Exception e)
+            {
+
+            }
+            return ReturnStatusEnum.UrlInWrongFormat;
         }
     }
 }
