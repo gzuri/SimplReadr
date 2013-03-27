@@ -9,7 +9,7 @@
         <li class="nav-header">Sidebar</li>
         <li>@Html.ActionLink("All items", "Index", "Reader", new { feedID = (long?)null}, new{})</li>
         <li><a href="#">Favorites</a></li>
-        <li><a href="#">Link</a></li>
+        <li>@Html.ActionLink("Manage subscriptions", "ManageSubscriptions", "Reader")</li>
         <li><a href="#">Link</a></li>
         <li class="nav-header">Sidebar</li>
         @{Html.RenderAction("DisplaySubscriptions", "Reader");}

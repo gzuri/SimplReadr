@@ -33,7 +33,8 @@ namespace SimplReaderMVC.Models.Reader
                                         {
                                             Title = x.Title,
                                             Content = x.ShortDescription,
-                                            DatePublished = x.DatePublished
+                                            DatePublished = x.DatePublished,
+                                            FullURL =  x.FullURL
                                         }).ToList();
         }
 
