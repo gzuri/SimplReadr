@@ -79,6 +79,15 @@ namespace SimplReaderMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import from XML.
+        /// </summary>
+        public static string ImportFromXML {
+            get {
+                return ResourceManager.GetString("ImportFromXML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign in.
         /// </summary>
         public static string LogOnButton {

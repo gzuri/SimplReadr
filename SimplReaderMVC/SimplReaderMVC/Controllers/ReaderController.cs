@@ -75,5 +75,16 @@ namespace SimplReaderMVC.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+
+        [HttpPost]
+        public ActionResult ImportFromXML(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0 && file.ContentType.Contains("xml"))
+            {
+                var status = readerService.ImportXML(file);
+            }
+            return Content("");
+        }
     }
 }

@@ -1,6 +1,39 @@
-﻿@{
+﻿@using SimplReaderMVC.Resources
+@{
     ViewBag.Title = "Manage subscriptions";
-    Layout = "~/Views/shared/_BootstrapLayout.basic.cshtml";
+    Layout = "~/Views/shared/_Layout.cshtml";
 }
-
+<button class="btn" id="importGoogle">@Translations.ImportFromXML</button>
 @{ Html.RenderAction("ManageSubscriptionsTable"); }
+
+@section Scripts
+{
+    <script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+    <script type="text/javascript" src="~/Scripts/plupload/plupload.full.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var uploader = new plupload.Uploader({
+                runtimes: 'gears,html5,flash,browserplus',
+                browse_button: 'importGoogle',
+                //container: 'container',
+                url: '@Url.Action("ImportFromXML", "Reader")',
+                filters: [
+                    { title: "Image files", extensions: "xml" }
+                ],
+                init: {
+                    FilesAdded: function (up, files) {
+                        up.start();
+                    },
+                    UploadComplete: function (up, files) {
+                        $.each(files, function (i, file) {
+                            // Do stuff with the file. There will only be one file as it uploaded straight after adding!
+                        });
+                    }
+                }
+            });
+            uploader.init();
+
+        });
+        
+    </script>
+}

@@ -123,6 +123,9 @@
   <data name="EmailPlaceholder" xml:space="preserve">
     <value>Enter your email</value>
   </data>
+  <data name="ImportFromXML" xml:space="preserve">
+    <value>Import from XML</value>
+  </data>
   <data name="LogOnButton" xml:space="preserve">
     <value>Sign in</value>
   </data>
