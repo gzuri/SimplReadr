@@ -1,6 +1,5 @@
-    @using System.Web.Optimization
-@using BootstrapSupport
-@using NavigationRoutes
+
+@using System.Web.Optimization
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,13 +41,10 @@
 
     </style>    <link href="@Styles.Url("~/Content/css-responsive")" rel="stylesheet" type="text/css" />
     @RenderSection("head", required: false)
-    @Html.Partial("_html5shiv")
     @* favicons and touch icons go here *@
 </head>
 <body>
     <div class="container">
-
-        @Html.Partial("_alerts")
         @RenderBody()
         <hr>
         <footer>

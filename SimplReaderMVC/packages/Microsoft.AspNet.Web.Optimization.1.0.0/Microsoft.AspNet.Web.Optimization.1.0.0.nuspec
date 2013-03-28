@@ -10,6 +10,9 @@
     <iconUrl>https://download-codeplex.sec.s-msft.com/Download?ProjectName=aspnetwebstack&amp;DownloadId=360555</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>ASP.NET Optimization introduces a way to bundle and optimize css/js files.</description>
+    <releaseNotes />
+    <copyright />
+    <language />
     <tags>Microsoft AspNet optimization bundling minification</tags>
     <dependencies>
       <dependency id="Microsoft.Web.Infrastructure" version="1.0.0" />

@@ -42,6 +42,12 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="MiniProfiler">
+      <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler.EntityFramework">
+      <HintPath>..\packages\MiniProfiler.EF.2.1.0\lib\net40\MiniProfiler.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -71,11 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Concrete\DbContext.cs" />
+    <Compile Include="BLL\Reader\Category.cs" />
     <Compile Include="BLL\Reader\FeedItem.cs" />
     <Compile Include="BLL\Reader\RssFeed.cs" />
     <Compile Include="BLL\Membership\User.cs" />
     <Compile Include="BLL\Membership\UserKey.cs" />
-    <Compile Include="BLL\Concrete\UserSubscription.cs" />
+    <Compile Include="BLL\Reader\UserSubscription.cs" />
     <Compile Include="BLL\Membership\AccountProvider.cs" />
     <Compile Include="BLL\Membership\AuthenticationProvider.cs" />
     <Compile Include="BLL\Providers\CacheProvider.cs" />
@@ -116,6 +123,14 @@
     <Compile Include="Migrations\201303241718443_added default title for feed.Designer.cs">
       <DependentUpon>201303241718443_added default title for feed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303281706253_Add categories.cs" />
+    <Compile Include="Migrations\201303281706253_Add categories.Designer.cs">
+      <DependentUpon>201303281706253_Add categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303281733246_added HtmlUrl to feed.cs" />
+    <Compile Include="Migrations\201303281733246_added HtmlUrl to feed.Designer.cs">
+      <DependentUpon>201303281733246_added HtmlUrl to feed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -146,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303241718443_added default title for feed.resx">
       <DependentUpon>201303241718443_added default title for feed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303281706253_Add categories.resx">
+      <DependentUpon>201303281706253_Add categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303281733246_added HtmlUrl to feed.resx">
+      <DependentUpon>201303281733246_added HtmlUrl to feed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

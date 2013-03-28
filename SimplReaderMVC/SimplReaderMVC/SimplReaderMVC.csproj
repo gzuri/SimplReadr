@@ -51,17 +51,19 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\packages\Glimpse.1.2.0\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Mvc">
-      <HintPath>..\packages\Mvc4Futures.4.0.20710.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="MiniProfiler">
+    <Reference Include="MiniProfiler, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
     </Reference>
-    <Reference Include="MiniProfiler.EntityFramework">
+    <Reference Include="MiniProfiler.EntityFramework, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MiniProfiler.EF.2.1.0\lib\net40\MiniProfiler.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
@@ -153,11 +155,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\MiniProfiler.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
-    <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
@@ -173,11 +172,6 @@
     <Compile Include="Models\Reader\SubscriptionsVM.cs" />
     <Compile Include="Models\UserMessage\UserMessage.cs" />
     <Compile Include="Models\UserMessage\UserMessageProvider.cs" />
-    <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
-    <Compile Include="NavigationRoutes\NamedRoute.cs" />
-    <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
-    <Compile Include="NavigationRoutes\NavigationRouteConfigurationExtensions.cs" />
-    <Compile Include="NavigationRoutes\NavigationRouteFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Notifications.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,34 +188,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\body.css" />
-    <Content Include="Content\bootstrap-mvc-validation.css" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\empty.png" />
-    <Content Include="Content\images\glyphicons-halflings-white.png" />
-    <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\custom.js" />
-    <Content Include="scripts\html5shiv.js" />
-    <None Include="scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="scripts\jquery-1.9.1.js" />
-    <Content Include="scripts\jquery-1.9.1.min.js" />
-    <Content Include="scripts\jquery-migrate-1.1.1.js" />
-    <Content Include="scripts\jquery-migrate-1.1.1.min.js" />
-    <Content Include="scripts\jquery.lazyload.min.js" />
-    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
-    <None Include="scripts\jquery.validate-vsdoc.js" />
-    <Content Include="scripts\jquery.validate.js" />
-    <Content Include="scripts\jquery.validate.min.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive-custom-for-bootstrap.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.lazyload.min.js" />
+    <Content Include="Scripts\MVC\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\MVC\jquery.validate.min.js" />
+    <Content Include="Scripts\MVC\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\noty\default.js" />
+    <Content Include="Scripts\noty\jquery.noty.js" />
+    <Content Include="Scripts\noty\top.js" />
+    <Content Include="Scripts\qtip\jquery.qtip.min.css" />
+    <Content Include="Scripts\qtip\jquery.qtip.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -230,19 +214,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\shared\Index.cshtml" />
-    <Content Include="Views\shared\Details.cshtml" />
-    <Content Include="Views\shared\Create.cshtml" />
-    <Content Include="Views\shared\_validationSummary.cshtml" />
-    <Content Include="Views\shared\_BootstrapLayout.narrow.cshtml" />
     <Content Include="Views\shared\_BootstrapLayout.empty.cshtml" />
     <Content Include="Views\shared\_BootstrapLayout.basic.cshtml" />
-    <Content Include="Views\shared\_alerts.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\shared\_MINIPROFILER UPDATED Layout.cshtml" />
     <Content Include="Views\Reader\Index.cshtml" />
     <Content Include="Views\Reader\DisplaySubscriptions.cshtml" />
     <Content Include="Views\shared\Sidebar.cshtml" />
@@ -255,9 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\shared\_html5shiv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Notifications.resx">
@@ -274,6 +246,15 @@
       <Project>{768c1b01-34d6-4f8b-85a1-6402a184cdf3}</Project>
       <Name>SimplReaderBLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\shared\_MINIPROFILER UPDATED Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
