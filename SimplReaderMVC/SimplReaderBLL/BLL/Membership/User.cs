@@ -18,9 +18,11 @@ namespace SimplReaderBLL.BLL.Membership
         public DateTime? LastLogin { get; set; }
         public int? DefaultLangID { get; set; }
         public string Name { get; set; }
+        public int UserType { get; set; }
+
         public virtual ICollection<UserSubscription> UserSubscriptions { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<UserKey> UserKeys { get; set; }
-        public int UserType { get; set; }
+        public virtual ICollection<UserFeedItemStatus> UserFeedItemStatuses { get; set; }
     }
 }

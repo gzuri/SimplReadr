@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SimplReaderBLL.BLL.Reader {
 	public class FeedItem
@@ -14,6 +15,8 @@ namespace SimplReaderBLL.BLL.Reader {
 
 		public virtual RssFeed RssFeed { get; set; }
 		public long RssFeedID { get; set; }
+
+	    public virtual ICollection<UserFeedItemStatus> UserFeedItemStatuses { get; set; }
         #endregion
 
 	    

@@ -82,6 +82,7 @@
     <Compile Include="BLL\Reader\RssFeed.cs" />
     <Compile Include="BLL\Membership\User.cs" />
     <Compile Include="BLL\Membership\UserKey.cs" />
+    <Compile Include="BLL\Reader\UserFeedItemStatus.cs" />
     <Compile Include="BLL\Reader\UserSubscription.cs" />
     <Compile Include="BLL\Membership\AccountProvider.cs" />
     <Compile Include="BLL\Membership\AuthenticationProvider.cs" />
@@ -131,6 +132,10 @@
     <Compile Include="Migrations\201303281733246_added HtmlUrl to feed.Designer.cs">
       <DependentUpon>201303281733246_added HtmlUrl to feed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303282144549_Added user statuses.cs" />
+    <Compile Include="Migrations\201303282144549_Added user statuses.Designer.cs">
+      <DependentUpon>201303282144549_Added user statuses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request.cs" />
@@ -168,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303281733246_added HtmlUrl to feed.resx">
       <DependentUpon>201303281733246_added HtmlUrl to feed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303282144549_Added user statuses.resx">
+      <DependentUpon>201303282144549_Added user statuses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
