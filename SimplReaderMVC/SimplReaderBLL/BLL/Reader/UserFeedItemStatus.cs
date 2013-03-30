@@ -14,8 +14,8 @@ namespace SimplReaderBLL.BLL.Reader
         public long FeedItemID { get; set; }
         public virtual FeedItem FeedItem { get; set; }
 
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
+        public long UserSubscriptionID { get; set; }
+        public virtual UserSubscription UserSubscription { get; set; }
 
         /// <summary>
         /// Date when a user read the item

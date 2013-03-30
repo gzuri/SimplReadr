@@ -92,11 +92,15 @@ namespace SimplReaderBLL.BLL.Reader
             if (feedData == null)
                 feedData = GetFeedFromURL(feedDbData.FullURL);
 
+            int addedItems = 0;
             foreach (var item in feedData.FeedItems.Where(x => allLocalItems.All(y => y.FullURL != x.FullURL)))
             {
                 item.RssFeedID = feedID;
                 context.FeedItems.Add(item);
+                addedItems++;
             }
+
+            feedDbData.CalculatedFeedItemsCount = allLocalItems.Count + addedItems;
             feedDbData.LastSync = DateTime.UtcNow;
             feedDbData.Title = feedData.Title;
             context.SaveChanges();
@@ -108,7 +112,7 @@ namespace SimplReaderBLL.BLL.Reader
         /// <param name="userID">Returns for user</param>
         /// <param name="feedID">If null return feeds from all subscritpions</param>
         /// <returns></returns>
-        public IEnumerable<FeedItem> GetFeedsForUser(int userID, long? feedID = null)
+        public IEnumerable<FeedItem> GetFeeds(int? userID = null, long? feedID = null, int skip = 0, int take = 25)
         {
             var data = (from feedItems in context.FeedItems
                         join feed in context.RssFeeds on feedItems.RssFeedID equals feed.RssFeedID
@@ -119,7 +123,7 @@ namespace SimplReaderBLL.BLL.Reader
 
             if (feedID.HasValue)
                 data = data.Where(x => x.RssFeedID == feedID.Value);
-
+            data = data.Skip(skip).Take(take);
             return data;
         }
     }

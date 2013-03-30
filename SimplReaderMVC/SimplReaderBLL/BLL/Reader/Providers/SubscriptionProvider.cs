@@ -23,21 +23,36 @@ namespace SimplReaderBLL.BLL.Reader
             this.feedProvider = feedProvider;
         }
 
-        public IEnumerable<RssFeed> GetUserSubscriptions(int userID)
+        public IEnumerable<RssFeed> GetSubscriptions(int? userID = null, long? rssFeedID = null)
         {
             var data = (from feeds in context.RssFeeds
-                       join subscriptions in context.UserSubscriptions on feeds.RssFeedID equals subscriptions.RssFeedID
-                       where subscriptions.UserID == userID
-                       orderby subscriptions.Title
-                       select new {feeds, subscriptions}).ToList().Select(x=> new RssFeed
+                        join subscriptions in context.UserSubscriptions on feeds.RssFeedID equals
+                            subscriptions.RssFeedID
+                        orderby subscriptions.Title
+                        select new {feeds, subscriptions});
+
+            if (userID.HasValue)
+                data = data.Where(x => x.subscriptions.UserID == userID.Value);
+
+            if (rssFeedID.HasValue)
+                data = data.Where(x => x.feeds.RssFeedID == rssFeedID);
+
+            return  data.ToList().Select(x=> new RssFeed
                            {
                                Title =  !string.IsNullOrEmpty(x.subscriptions.Title) ? x.subscriptions.Title : x.feeds.Title, 
                                FullURL = x.feeds.FullURL, 
-                               RssFeedID = x.subscriptions.RssFeedID, 
-                               LastSync = x.feeds.LastSync
+                               RssFeedID = x.feeds.RssFeedID, 
+                               LastSync = x.feeds.LastSync,
+                               CalculatedFeedItemsCount = x.feeds.CalculatedFeedItemsCount
                            });
+        }
+
+        public RssFeed GetFeed(long feedID)
+        {
+            var data = (from feed in context.RssFeeds where feed.RssFeedID == feedID select feed).FirstOrDefault();
             return data;
         }
+
 
         public ReturnStatusEnum AddSubscription(int userID, Uri url, out RssFeed rssFeed, int? categoryID = null)
         {

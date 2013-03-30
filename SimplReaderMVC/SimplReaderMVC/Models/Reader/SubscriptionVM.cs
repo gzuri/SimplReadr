@@ -8,9 +8,13 @@ namespace SimplReaderMVC.Models.Reader
 {
     public class SubscriptionVM
     {
-        public long ID { get; set; }
+        /// <summary>
+        /// RssFeedID
+        /// </summary>
+        public long? ID { get; set; }
         public string Title { get; set; }
         public string InternalURL { get; set; }
+        public int CalculatedTotalFeedItemsCount { get; set; }
         [Required]
         public string SubscriptionFullURL { get; set; }
     }

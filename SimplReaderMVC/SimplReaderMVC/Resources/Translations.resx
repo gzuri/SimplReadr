@@ -120,6 +120,9 @@
   <data name="AccountNotActivated" xml:space="preserve">
     <value>Your account has not been activated</value>
   </data>
+  <data name="AllSubscriptionsTitle" xml:space="preserve">
+    <value>All subscriptions</value>
+  </data>
   <data name="EmailPlaceholder" xml:space="preserve">
     <value>Enter your email</value>
   </data>

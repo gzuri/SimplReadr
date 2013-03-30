@@ -9,6 +9,7 @@ namespace SimplReaderBLL {
 		public static string DefaultEmailUsername { get { return ConfigurationManager.AppSettings.Get("DefaultEmailUsername"); } }
 		public static string DefaultEmailPassword { get { return ConfigurationManager.AppSettings.Get("DefaultEmailPassword"); } }
         public static int NotificationTimeout { get { return GetIntSetting("NotificationTimeout"); } }
+        public static int FeedItemsPerPage { get { return GetIntSetting("FeedItemsPerPage"); } }
 
 		static bool GetBoolSetting(string key)
 		{

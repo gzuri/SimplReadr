@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201303282144549_Added user statuses.Designer.cs">
       <DependentUpon>201303282144549_Added user statuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303301348332_Added calculated nubmer of feed items.cs" />
+    <Compile Include="Migrations\201303301348332_Added calculated nubmer of feed items.Designer.cs">
+      <DependentUpon>201303301348332_Added calculated nubmer of feed items.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request.cs" />
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201303282144549_Added user statuses.resx">
       <DependentUpon>201303282144549_Added user statuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303301348332_Added calculated nubmer of feed items.resx">
+      <DependentUpon>201303301348332_Added calculated nubmer of feed items.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

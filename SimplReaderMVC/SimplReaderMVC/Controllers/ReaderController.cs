@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using SimplReaderBLL;
 using SimplReaderBLL.Enumerators;
 using SimplReaderMVC.Models.Reader;
 using SimplReaderMVC.Resources;
@@ -19,9 +21,22 @@ namespace SimplReaderMVC.Controllers
         }
 
         [Authorize]
-        public ActionResult Index(long? feedID)
+        public ActionResult Index(long? feedID, int page = 1)
         {
-            var model = readerService.GetFeedItems(SimplReaderBLL.CurrentUser.UserID, feedID);
+            var model = new DisplaySubscription
+                            {
+                                SubscriptionVM = readerService.GetSubscription(feedID),
+                                FeedItemVms = readerService.GetFeedItems(userID: SimplReaderBLL.CurrentUser.UserID, feedID: feedID, page: page)
+                            };
+
+
+            ViewBag.OnePageOfFeeds = new StaticPagedList<FeedItemVM>(model.FeedItemVms, page, Settings.FeedItemsPerPage, model.SubscriptionVM.CalculatedTotalFeedItemsCount);
+            return View(model);
+        }
+
+        public ActionResult DisplayFeedItems(long? feedID, int page = 1)
+        {
+            var model = readerService.GetFeedItems(CurrentUser.UserID, feedID: feedID, page: page);
             return View(model);
         }
 

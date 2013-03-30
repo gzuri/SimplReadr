@@ -1,0 +1,13 @@
+﻿@model List<SimplReaderMVC.Models.Reader.FeedItemVM>
+
+@foreach(var item in Model)
+{
+    <article class="feedItem">
+        <h3><a href="@item.FullURL">@item.Title</a></h3>
+        <p> @Html.Raw(item.Content)</p>
+        <div>
+            <span class="badge badge-success">Posted: @item.DatePublished.ToShortDateString()</span><div class="pull-right"><span class="label">alice</span> <span class="label">story</span> <span class="label">blog</span> <span class="label">personal</span></div>
+        </div> 
+    </article>
+}
+

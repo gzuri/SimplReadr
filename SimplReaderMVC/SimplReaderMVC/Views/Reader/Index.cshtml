@@ -1,27 +1,44 @@
-﻿@model List<SimplReaderMVC.Models.Reader.FeedItemVM>
+﻿@using PagedList
+
+@using PagedList.Mvc
+@using SimplReaderMVC.Models.Reader
+@model SimplReaderMVC.Models.Reader.DisplaySubscription
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/shared/_Layout.cshtml";
     
 }
 
+<div id="feedItemsContainer">
+    
+    @{ Html.RenderPartial("DisplayFeedItems", Model.FeedItemVms); }
+</div>
 
-
-@foreach(var item in Model)
-{
-    <article>
-        <h3><a href="@item.FullURL">@item.Title</a></h3>
-        <p> @Html.Raw(item.Content)</p>
-        <div>
-            <span class="badge badge-success">Posted: @item.DatePublished.ToShortDateString()</span><div class="pull-right"><span class="label">alice</span> <span class="label">story</span> <span class="label">blog</span> <span class="label">personal</span></div>
-        </div> 
-    </article>
-}
+@Html.PagedListPager( (IPagedList)ViewBag.OnePageOfFeeds, page => Url.Action("DisplayFeedItems", new { page = page, feedID = Model.SubscriptionVM.ID }) )
 
 
 
 
 @section Scripts
 {
+    <script type="text/javascript" src="~/Scripts/jquery.infinitescroll.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#feedItemsContainer').infinitescroll({
+                navSelector: "div.pagination",
+                nextSelector: "div.pagination li.PagedList-skipToNext a:first",
+                itemSelector: "article.feedItem",
+                animate: true,
+                bufferPx: 300,
+                prefill: true
+            },function () {
+                console.log("change");
+                $("img").lazyload({
+                    effect: "fadeIn"
+                });
+            });
+        });
+
+    </script>
 }
 

@@ -12,6 +12,7 @@ namespace SimplReaderBLL.BLL.Reader {
 	    public DateTime LastSync { get; set; }
         public string HtmlURL { get; set; }
         public string Title { get; set; }
+	    public int CalculatedFeedItemsCount { get; set; }
 
 		public virtual ICollection<FeedItem> FeedItems { get; set; }
         public virtual ICollection<UserSubscription> UserSubscriptions { get; set; }

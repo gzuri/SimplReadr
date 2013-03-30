@@ -24,9 +24,9 @@ namespace SimplReaderBLL.BLL.Concrete {
 			modelBuilder.Entity<UserKey>().HasKey(x => x.ID).HasRequired(x => x.User).WithMany(x=>x.UserKeys).HasForeignKey(x=>x.UserID).WillCascadeOnDelete(true);
 		    modelBuilder.Entity<RssFeed>().HasKey(x => x.RssFeedID);
 			modelBuilder.Entity<FeedItem>().HasKey(x => x.FeedItemID).HasRequired(x => x.RssFeed).WithMany(x=>x.FeedItems).HasForeignKey(x=>x.RssFeedID).WillCascadeOnDelete(true);
-		    modelBuilder.Entity<UserSubscription>().HasKey(x => x.ID).HasRequired(x=>x.User).WithMany(x=>x.UserSubscriptions).HasForeignKey(x=>x.UserID).WillCascadeOnDelete(true);
+		    modelBuilder.Entity<UserSubscription>().HasKey(x => x.UserSubscriptionID).HasRequired(x=>x.User).WithMany(x=>x.UserSubscriptions).HasForeignKey(x=>x.UserID).WillCascadeOnDelete(true);
 		    modelBuilder.Entity<Category>().HasKey(x => x.CategoryID).HasMany(x => x.UserSubscriptions);
-            modelBuilder.Entity<UserFeedItemStatus>().HasKey(x=>x.ID).HasRequired(x=>x.User).WithMany(x=>x.UserFeedItemStatuses).HasForeignKey(x=>x.UserID).WillCascadeOnDelete(true);
+            modelBuilder.Entity<UserFeedItemStatus>().HasKey(x=>x.ID).HasRequired(x=>x.UserSubscription).WithMany(x=>x.UserFeedItemStatuses).HasForeignKey(x=>x.UserSubscriptionID).WillCascadeOnDelete(true);
 
             //modelBuilder.Entity<UserSubscription>().HasRequired(x=>x.RssFeed).WithMany(x=>x.UserSubscriptions).HasForeignKey(x=>x.RssFeedID).WillCascadeOnDelete(true);
 			base.OnModelCreating(modelBuilder);

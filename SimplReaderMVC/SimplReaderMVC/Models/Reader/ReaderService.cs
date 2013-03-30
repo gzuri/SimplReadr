@@ -8,6 +8,7 @@ using Ninject.Extensions.Logging;
 using SimplReaderBLL.BLL.Reader;
 using SimplReaderBLL;
 using SimplReaderBLL.Enumerators;
+using SimplReaderMVC.Resources;
 
 
 namespace SimplReaderMVC.Models.Reader
@@ -27,13 +28,34 @@ namespace SimplReaderMVC.Models.Reader
 
         public List<SubscriptionVM> GetUserSubscriptions(int userID)
         {
-            return subscriptionProvider.GetUserSubscriptions(userID).Select( x => new SubscriptionVM {SubscriptionFullURL = x.FullURL, ID = x.RssFeedID, Title = x.Title}).ToList();
+            return subscriptionProvider.GetSubscriptions(userID: userID).Select(SubscriptionFactory).ToList();
         }
 
-        public List<FeedItemVM> GetFeedItems(int userID, long? feedID = null)
+        public SubscriptionVM GetSubscription(long? feedID)
         {
-            var data = feedProvider.GetFeedsForUser(userID, feedID);
+            var dbFeed = subscriptionProvider.GetSubscriptions(userID: CurrentUser.UserID, rssFeedID: feedID);
+            if (dbFeed == null)
+                return null;
+            
+            if (feedID.HasValue)
+                return SubscriptionFactory(dbFeed.First());
+            else 
+                return new SubscriptionVM
+                           {
+                               ID = null,
+                               Title = Translations.AllSubscriptionsTitle,
+                               CalculatedTotalFeedItemsCount = dbFeed.Sum(x=>x.CalculatedFeedItemsCount)
+                           };
+            
+        }
 
+        public List<FeedItemVM> GetFeedItems(int userID, long? feedID = null, int page = 1)
+        {
+            if (page > 0)
+                page--;
+
+            var skip = page * Settings.FeedItemsPerPage;
+            var data = feedProvider.GetFeeds(userID, feedID, skip: skip, take:Settings.FeedItemsPerPage );
             return data.Select(x => new FeedItemVM
                                         {
                                             Title = x.Title,
@@ -93,6 +115,20 @@ namespace SimplReaderMVC.Models.Reader
             }
 
             return ReturnStatusEnum.Success;
+        }
+
+        public static SubscriptionVM SubscriptionFactory(RssFeed feed)
+        {
+            if (feed == null)
+                return null;
+
+            return new SubscriptionVM
+                       {
+                           Title =  feed.Title,
+                           CalculatedTotalFeedItemsCount = feed.CalculatedFeedItemsCount,
+                           ID = feed.RssFeedID,
+                           SubscriptionFullURL = feed.FullURL
+                       };
         }
     }
 }

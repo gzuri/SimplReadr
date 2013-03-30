@@ -70,12 +70,10 @@
          @RenderSection("Scripts", required: false)
        <script type="text/javascript">
            jQuery(document).ready(function () {
-               $("img").lazyload({
-                   effect: "fadeIn"
-               });
+               
                jQuery("#addSubscription").click(function (ev) {
                    ev.preventDefault();
-                   console.log("init modal");
+                   
                    jQuery("#addSubscriptionModal").modal('show');
                });
            });

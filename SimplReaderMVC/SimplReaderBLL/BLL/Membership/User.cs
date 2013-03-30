@@ -23,6 +23,5 @@ namespace SimplReaderBLL.BLL.Membership
         public virtual ICollection<UserSubscription> UserSubscriptions { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<UserKey> UserKeys { get; set; }
-        public virtual ICollection<UserFeedItemStatus> UserFeedItemStatuses { get; set; }
     }
 }

@@ -70,6 +70,15 @@ namespace SimplReaderMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All subscriptions.
+        /// </summary>
+        public static string AllSubscriptionsTitle {
+            get {
+                return ResourceManager.GetString("AllSubscriptionsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your email.
         /// </summary>
         public static string EmailPlaceholder {

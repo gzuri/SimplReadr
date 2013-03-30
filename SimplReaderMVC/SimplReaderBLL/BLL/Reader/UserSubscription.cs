@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using SimplReaderBLL.BLL.Membership;
 
 namespace SimplReaderBLL.BLL.Reader
 {
     public class UserSubscription
     {
-        public long ID { get; set; }
+        public long UserSubscriptionID { get; set; }
 
         public virtual User User { get; set; }
         public int UserID { get; set; }
@@ -20,5 +21,7 @@ namespace SimplReaderBLL.BLL.Reader
         public string Title { get; set; }
 
         public DateTime SubscribeDate { get; set; }
+
+        public virtual ICollection<UserFeedItemStatus> UserFeedItemStatuses { get; set; }
     }
 }
