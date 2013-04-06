@@ -23,6 +23,12 @@ namespace SimplReaderMVC {
             );
 
             routes.MapRoute(
+                 name: "Register",
+                 url: "Register",
+                 defaults: new { controller = "Account", action = "Register" }
+            );
+
+            routes.MapRoute(
                  name: "LogOut",
                  url: "LogOut",
                  defaults: new { controller = "Account", action = "LogOut" }

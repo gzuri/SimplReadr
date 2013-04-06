@@ -42,6 +42,30 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.2.2.13055\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.2.2.13055\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.2.2.13055\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.2.2.13055\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.2.2.13055\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.2.2.13055\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
     <Reference Include="Elmah">
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
     </Reference>
@@ -173,6 +197,7 @@
     </Compile>
     <Compile Include="Models\Account\AccountService.cs" />
     <Compile Include="Models\Account\LogOnVM.cs" />
+    <Compile Include="Models\Account\RegisterVM.cs" />
     <Compile Include="Models\Reader\DisplaySubscription.cs" />
     <Compile Include="Models\Reader\FeedItemVM.cs" />
     <Compile Include="Models\Reader\ReaderService.cs" />
@@ -221,6 +246,106 @@
     <Content Include="Scripts\noty\default.js" />
     <Content Include="Scripts\noty\jquery.noty.js" />
     <Content Include="Scripts\noty\top.js" />
+    <Content Include="Scripts\openidselector\css\openid-shadow.css" />
+    <Content Include="Scripts\openidselector\css\openid.css" />
+    <Content Include="Content\openid\images.large\aol.gif" />
+    <Content Include="Content\openid\images.large\facebook.gif" />
+    <Content Include="Content\openid\images.large\google.gif" />
+    <Content Include="Content\openid\images.large\mailru.gif" />
+    <Content Include="Content\openid\images.large\myopenid.gif" />
+    <Content Include="Content\openid\images.large\openid.gif" />
+    <Content Include="Content\openid\images.large\rambler.gif" />
+    <Content Include="Content\openid\images.large\verisign.gif" />
+    <Content Include="Content\openid\images.large\vkontakte.gif" />
+    <Content Include="Content\openid\images.large\yahoo.gif" />
+    <Content Include="Content\openid\images.large\yandex.gif" />
+    <Content Include="Content\openid\images.small\aol.ico" />
+    <Content Include="Content\openid\images.small\aol.ico.gif" />
+    <Content Include="Content\openid\images.small\aol.ico.png" />
+    <Content Include="Content\openid\images.small\blogger.ico" />
+    <Content Include="Content\openid\images.small\blogger.ico.gif" />
+    <Content Include="Content\openid\images.small\blogger.ico.png" />
+    <Content Include="Content\openid\images.small\claimid.ico" />
+    <Content Include="Content\openid\images.small\claimid.ico.gif" />
+    <Content Include="Content\openid\images.small\claimid.ico.png" />
+    <Content Include="Content\openid\images.small\clickpass.ico" />
+    <Content Include="Content\openid\images.small\clickpass.ico.gif" />
+    <Content Include="Content\openid\images.small\clickpass.ico.png" />
+    <Content Include="Content\openid\images.small\facebook.ico" />
+    <Content Include="Content\openid\images.small\facebook.ico.gif" />
+    <Content Include="Content\openid\images.small\facebook.ico.png" />
+    <Content Include="Content\openid\images.small\flickr.ico" />
+    <Content Include="Content\openid\images.small\flickr.ico.gif" />
+    <Content Include="Content\openid\images.small\flickr.ico.png" />
+    <Content Include="Content\openid\images.small\google.ico" />
+    <Content Include="Content\openid\images.small\google.ico.gif" />
+    <Content Include="Content\openid\images.small\google.ico.png" />
+    <Content Include="Content\openid\images.small\google_profile.ico" />
+    <Content Include="Content\openid\images.small\google_profile.ico.gif" />
+    <Content Include="Content\openid\images.small\google_profile.ico.png" />
+    <Content Include="Content\openid\images.small\launchpad.ico" />
+    <Content Include="Content\openid\images.small\launchpad.ico.gif" />
+    <Content Include="Content\openid\images.small\launchpad.ico.png" />
+    <Content Include="Content\openid\images.small\linkedin.ico" />
+    <Content Include="Content\openid\images.small\linkedin.ico.gif" />
+    <Content Include="Content\openid\images.small\linkedin.ico.png" />
+    <Content Include="Content\openid\images.small\livejournal.ico" />
+    <Content Include="Content\openid\images.small\livejournal.ico.gif" />
+    <Content Include="Content\openid\images.small\livejournal.ico.png" />
+    <Content Include="Content\openid\images.small\mailru.ico" />
+    <Content Include="Content\openid\images.small\mailru.ico.gif" />
+    <Content Include="Content\openid\images.small\mailru.ico.png" />
+    <Content Include="Content\openid\images.small\myopenid.ico" />
+    <Content Include="Content\openid\images.small\myopenid.ico.gif" />
+    <Content Include="Content\openid\images.small\myopenid.ico.png" />
+    <Content Include="Content\openid\images.small\openid.ico" />
+    <Content Include="Content\openid\images.small\openid.ico.gif" />
+    <Content Include="Content\openid\images.small\openid.ico.png" />
+    <Content Include="Content\openid\images.small\rambler.ico" />
+    <Content Include="Content\openid\images.small\rambler.ico.gif" />
+    <Content Include="Content\openid\images.small\rambler.ico.png" />
+    <Content Include="Content\openid\images.small\technorati.ico" />
+    <Content Include="Content\openid\images.small\technorati.ico.gif" />
+    <Content Include="Content\openid\images.small\technorati.ico.png" />
+    <Content Include="Content\openid\images.small\twitter.ico" />
+    <Content Include="Content\openid\images.small\twitter.ico.gif" />
+    <Content Include="Content\openid\images.small\twitter.ico.png" />
+    <Content Include="Content\openid\images.small\verisign.ico" />
+    <Content Include="Content\openid\images.small\verisign.ico.gif" />
+    <Content Include="Content\openid\images.small\verisign.ico.png" />
+    <Content Include="Content\openid\images.small\vidoop.ico" />
+    <Content Include="Content\openid\images.small\vidoop.ico.gif" />
+    <Content Include="Content\openid\images.small\vidoop.ico.png" />
+    <Content Include="Content\openid\images.small\vkontakte.ico" />
+    <Content Include="Content\openid\images.small\vkontakte.ico.gif" />
+    <Content Include="Content\openid\images.small\vkontakte.ico.png" />
+    <Content Include="Content\openid\images.small\winliveid.ico" />
+    <Content Include="Content\openid\images.small\winliveid.ico.gif" />
+    <Content Include="Content\openid\images.small\winliveid.ico.png" />
+    <Content Include="Content\openid\images.small\wordpress.ico" />
+    <Content Include="Content\openid\images.small\wordpress.ico.gif" />
+    <Content Include="Content\openid\images.small\wordpress.ico.png" />
+    <Content Include="Content\openid\images.small\yahoo.ico" />
+    <Content Include="Content\openid\images.small\yahoo.ico.gif" />
+    <Content Include="Content\openid\images.small\yahoo.ico.png" />
+    <Content Include="Content\openid\images.small\yandex.ico" />
+    <Content Include="Content\openid\images.small\yandex.ico.gif" />
+    <Content Include="Content\openid\images.small\yandex.ico.png" />
+    <Content Include="Content\openid\images\openid-inputicon.gif" />
+    <Content Include="Content\openid\images\openid-providers-en.png" />
+    <Content Include="Content\openid\images\openid-providers-ru.png" />
+    <Content Include="Scripts\openidselector\js\jquery-1.2.6.min.js" />
+    <Content Include="Scripts\openidselector\js\mootools-core.js" />
+    <Content Include="Scripts\openidselector\js\mootools-more.js" />
+    <Content Include="Scripts\openidselector\js\openid-de.js" />
+    <Content Include="Scripts\openidselector\js\openid-en.js" />
+    <Content Include="Scripts\openidselector\js\openid-jp.js" />
+    <Content Include="Scripts\openidselector\js\openid-jquery.js" />
+    <Content Include="Scripts\openidselector\js\openid-mootools.js" />
+    <Content Include="Scripts\openidselector\js\openid-prototype.js" />
+    <Content Include="Scripts\openidselector\js\openid-ru.js" />
+    <Content Include="Scripts\openidselector\js\openid-uk.js" />
+    <Content Include="Scripts\openidselector\js\prototype.js" />
     <Content Include="Scripts\plupload\i18n\cs.js" />
     <Content Include="Scripts\plupload\i18n\da.js" />
     <Content Include="Scripts\plupload\i18n\de.js" />
@@ -327,6 +452,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Reader\DisplayFeedItems.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

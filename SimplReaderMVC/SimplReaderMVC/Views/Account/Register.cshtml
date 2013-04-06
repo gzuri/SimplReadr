@@ -1,0 +1,66 @@
+﻿@using SimplReaderMVC.Resources
+@model SimplReaderMVC.Models.Account.RegisterVM
+
+@{
+	ViewBag.Title = "Register";
+    Layout = "~/Views/shared/_BootstrapLayout.empty.cshtml";
+
+   AjaxOptions ajaxOptions = new AjaxOptions {
+       HttpMethod = "post",
+       UpdateTargetId = "validationSummaryLogOn",
+       OnSuccess = "ajaxFormSuccess"
+   };
+   AjaxOptions ajaxOptions2 = new AjaxOptions
+   {
+       HttpMethod = "get",
+       UpdateTargetId = "validationSummaryLogOn",
+       OnSuccess = "ajaxFormSuccess"
+   };
+}
+
+@using (Ajax.BeginForm("LogOn", "Account", new {}, ajaxOptions, new { @class = "form-signin" })) {
+    <h2 class="form-signin-heading">Please sign in</h2>
+    @Html.TextBoxFor(x=>x.Email, new {@class="input-block-level",placeholder=Translations.EmailPlaceholder })
+    @Html.ValidationMessageFor(x=>x.Email)
+    @Html.PasswordFor(x=>x.Password, new {@class="input-block-level",placeholder=Translations.PasswordPlaceholder })
+    @Html.ValidationMessageFor(x=>x.Password)
+	
+    <button class="btn btn-success" type="submit">@Translations.LogOnButton</button>
+    <a class="btn btn-primary" type="submit">@Translations.RegisterButton</a>
+}
+
+@using (Ajax.BeginForm("RegisterWithOpenID", "Account", new { }, ajaxOptions2, new { @class = "form-signin", id = "openid_form" }))
+{
+    <h2 class="form-signin-heading">Register</h2>    
+    <div id="openid_choice">
+		<p>Please click your account provider:</p>
+		<div id="openid_btns"></div>
+	</div>
+	<div id="openid_input_area">
+		<input id="openid_identifier" name="openid_identifier" type="text" value="http://" />
+		<input id="openid_submit" type="submit" value="Sign-In"/>
+	</div>
+	<noscript>
+		<p>OpenID is service that allows you to log-on to many different websites using a single indentity.
+		Find out <a href="http://openid.net/what/">more about OpenID</a> and <a href="http://openid.net/get/">how to get an OpenID enabled account</a>.</p>
+	</noscript>
+}
+
+@section head
+{
+    <link rel="stylesheet" href="~/Scripts/openidselector/css/openid-shadow.css"/>
+    <link rel="stylesheet" href="~/Scripts/openidselector/css/openid.css"/>
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/openidselector/js/openid-jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/openidselector/js/openid-en.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("ready");
+            openid.init('openid_identifier');
+        });
+    </script>
+
+}

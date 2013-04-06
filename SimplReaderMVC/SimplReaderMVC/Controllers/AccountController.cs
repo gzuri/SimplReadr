@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using DotNetOpenAuth.OpenId.RelyingParty;
 using SimplReaderBLL.Enumerators;
 using SimplReaderMVC.Models.Account;
 using SimplReaderMVC.Resources;
@@ -6,10 +7,12 @@ using SimplReaderMVC.Resources;
 namespace SimplReaderMVC.Controllers {
 	public class AccountController : BaseController {
 	    private readonly AccountService accountService;
+	    private OpenIdRelyingParty openID;
 
 	    public AccountController(AccountService accountService)
         {
             this.accountService = accountService;
+            this.openID = new OpenIdRelyingParty();
         }
 
 	    public ActionResult LogOn()
@@ -63,5 +66,20 @@ namespace SimplReaderMVC.Controllers {
             return RedirectToRoute("LogOn");
         }
 
+
+        public ActionResult RegisterWithOpenID()
+        {
+            var response = openID.GetResponse();
+            if (response == null)
+            {
+
+            }
+            return Content("ok");
+        }
+
+	    public ActionResult Register()
+        {
+            return View();
+        }
 	}
 }
